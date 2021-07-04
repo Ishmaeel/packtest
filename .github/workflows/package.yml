@@ -11,8 +11,15 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+
+
 jobs:
   build:
+
+    # Customize the contents of the Zip package here:
+    env:
+      ZIP_CONTENTS: README.md .github
+
     runs-on: ubuntu-latest
 
     steps:
@@ -25,10 +32,9 @@ jobs:
         run: echo "::set-output name=today::$(date +'%Y.%m.%d')"
 
       - name: Zip folder
-        run: zip -r $RELEASE_NAME.zip $CONTENTS
+        run: zip -r $RELEASE_NAME.zip $ZIP_CONTENTS
         env: 
           RELEASE_NAME: ${{ github.event.repository.name }}.${{ steps.date.outputs.today }}
-          CONTENTS: README.md .github
       
       - name: Publish
         id: publish
