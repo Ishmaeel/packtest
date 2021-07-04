@@ -28,7 +28,6 @@ jobs:
         run: zip -r $RELEASE_NAME.zip $CONTENTS
         env: 
           RELEASE_NAME: ${{ github.event.repository.name }}.${{ steps.date.outputs.today }}
-        with: 
           CONTENTS: README.md .github
       
       - name: Publish
