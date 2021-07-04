@@ -6,13 +6,15 @@ env:
   ZIP_CONTENTS: README.md .github
 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Produces a "latest" package for push operations on the main branch.
   push:
     branches: [ main ]
+  
+  # Produces a "pre-release" package for pull requests on the main branch.
   pull_request:
     branches: [ main ]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Allows you to run this workflow manually from the Actions tab.
   workflow_dispatch:
 
 jobs:
