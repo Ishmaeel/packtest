@@ -25,9 +25,9 @@ jobs:
         run: echo "::set-output name=today::$(date +'%Y.%m.%d')"
 
       - name: Zip folder
-        run: zip -r ${{ github.event.repository.name }}.$RELEASE_NAME.zip readme.md .github
+        run: zip -r $RELEASE_NAME.zip readme.md .github
         env: 
-          RELEASE_NAME: ${{ steps.date.outputs.today }}
+          RELEASE_NAME: ${{ github.event.repository.name }}.${{ steps.date.outputs.today }}
       
       - name: Publish
         uses: "marvinpinto/action-automatic-releases@v1.2.1"
