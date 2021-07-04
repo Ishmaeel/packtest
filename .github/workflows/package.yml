@@ -36,6 +36,5 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: ${{ github.event_name != 'push' }}
           automatic_release_tag: ${{ github.event_name == 'push' && 'latest' || 'pre-release' }}
-          title: $automatic_release_tag ${{steps.date.outputs.today}}
           files: |
             *.zip
