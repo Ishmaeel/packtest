@@ -32,7 +32,7 @@ jobs:
 
       - name: Zip folder
         run: |
-          mv README.md readme.txt
+          mv readme.md readme.txt
           zip -r $RELEASE_NAME.zip $ZIP_CONTENTS
         env: 
           RELEASE_NAME: ${{ github.event.repository.name }}.${{ steps.date.outputs.today }}
