@@ -34,6 +34,7 @@ jobs:
         run: |
           mv README.md readme.txt
           zip -r $RELEASE_NAME.zip $ZIP_CONTENTS
+          zip -?
         env: 
           RELEASE_NAME: ${{ github.event.repository.name }}.${{ steps.date.outputs.today }}
       
